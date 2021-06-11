@@ -1,0 +1,478 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>CMMM Barcelona</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+<script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script   src="https://code.jquery.com/jquery-3.6.0.min.js"   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="   crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+
+
+
+<style>
+body { margin: 0; padding: 0;font-family: 'Rubik', sans-serif; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+<style>
+ul{ 
+				font-size: 12px; 
+				padding: 0 !important ;
+				margin: 0 !important;
+			}
+
+			li{ 
+				font-size: 12px; 
+				line-height: 15px;
+				list-style-type: none;
+			}
+
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-center .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-left .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-right .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip, 
+.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip{
+    display:none !important;
+}
+
+.mapboxgl-popup{
+    transform:none !important;
+    position: fixed;
+    top: 180px;
+    bottom:0;
+    width: 350px;
+    z-index: 99999999999;
+    border-radius: none;
+
+}
+
+.mapboxgl-popup-content {
+overflow-y: scroll;
+overflow-x: scroll;
+width: 358px;
+z-index: 99999999999;
+border-radius: none;
+
+}
+
+#content{
+  padding-left: 8%;
+
+}
+
+#content_iframe{
+  border: none;
+}
+
+#content_image{
+  display: block;
+height: auto;
+max-width: 300px;
+}
+
+.marker {
+display: block;
+border: none;
+border-radius: 50%;
+cursor: pointer;
+padding: 0;
+background-color: red;
+width: 25px;
+height: 25px;
+}
+
+#header{
+  position: fixed;
+  background-color: white;
+  width: 340px;
+  height: 220px;
+  padding-left: 2%;
+
+}
+
+
+
+h2 h3 h4{
+  font-size: 18px;
+  padding-left: 2%;
+  display: inline-block !important;
+}
+
+.showMarker{
+  visibility: visible;
+}
+
+.hideDemanda{
+  visibility: hidden;
+}
+
+.hideResultat{
+  visibility: hidden;
+}
+
+.hideGrup{
+  visibility: hidden;
+}
+
+.btnActive{
+  opacity: 50%;
+}
+
+.show{}
+
+
+.hide{ display: none;}
+
+#filter{
+  position: fixed;
+  display: inline-block;
+  background-color: white;
+  margin-left: 340px;
+  width: 500px;
+  height: 220px;
+  padding-left: 2%;
+
+}
+</style>
+ 
+<div id="map"></div>
+<div id="Header"> 
+  <h2>CMMM Barcelona</h2>
+  <p>This is a small explanation text. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+</div>
+
+<div id="filter">
+  <h3>Filter:</h3>
+  <h4>Resultat:
+  <button id="button" type="button" onclick="ResultatAturat()" >Aturat</button>
+  <button id="button" type="button" onclick="ResultatNd()" >ND</button>
+  <button id="button" type="button" onclick="ResultatSuspes()" >Suspes</button>
+</h4>
+  <h4>Demanda:
+  <button id="button" type="button" onclick="DemandaBBVA()" >BBVA</button>
+  <button id="button" type="button" onclick="DemandaBANKIA()" >Bankia</button>
+  <button id="button" type="button" onclick="DemandaInmb()" >Inmb</button>
+</h4>
+
+<h4>Grup:
+  <button id="button" type="button" onclick="GrupVaris()" >Varis</button>
+  <button id="button" type="button" onclick="GrupPAH()" >PAH Barcelona</button>
+  <button id="button" type="button" onclick="GrupSDR()" >Stop Desnonaments Raval</button>
+  <button id="button" type="button" onclick="GrupRR()" >Raval Resistim</button>
+</h4>
+<h4>
+  Districts:
+  <button id="button" type="button" onclick="showLayer()" >Show Districts</button>
+  <button id="button" type="button" onclick="hideLayer()" >Hide Districts</button>
+
+
+</h4>
+</div>
+ 
+
+
+
+
+
+
+<script>
+	// TO MAKE THE MAP APPEAR YOU MUST
+	// ADD YOUR ACCESS TOKEN FROM
+	// https://account.mapbox.com
+	mapboxgl.accessToken = 'pk.eyJ1IjoiY21tbS1iY24iLCJhIjoiY2twbWc1aG5wMmV3aTJ2cmk2emcwN3NsMiJ9.mJ7upB63IpECABifdOgg-g';
+
+  var geojson = d3.json('https://raw.githubusercontent.com/Labor-K/mini-publics/master/map_c.geojson');
+  console.log(geojson)
+
+/* var geojson = {
+'type': 'FeatureCollection',
+'features': [
+{
+'type': 'Feature',
+'properties': {
+'message': 'Foo',
+'iconSize': [60, 60]
+},
+'geometry': {
+'type': 'Point',
+'coordinates': [-66.324462, -16.024695]
+}
+},
+{
+'type': 'Feature',
+'properties': {
+'message': 'Bar',
+'iconSize': [50, 50]
+},
+'geometry': {
+'type': 'Point',
+'coordinates': [-61.21582, -15.971891]
+}
+},
+{
+'type': 'Feature',
+'properties': {
+'message': 'Baz',
+'iconSize': [40, 40]
+},
+'geometry': {
+'type': 'Point',
+'coordinates': [-63.292236, -18.281518]
+}
+}
+]
+}; */
+ 
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/cmmm-bcn/ckps3z6um1go118tk6pmc16bm',
+center: [2.177773, 41.385553  ], // initial map center in [lon, lat]
+      zoom: 14.32,
+      bearing: -48.80,
+      pitch: 48.50,
+});
+
+
+map.on('load', function () {
+
+// Add a data source containing GeoJSON data.
+map.addSource('barris', {
+'type': 'geojson',
+'data': "https://raw.githubusercontent.com/cmmm-bcn/prototype/main/barris_final.geojson"
+});
+ 
+// Add a new layer to visualize the polygon.
+map.addLayer({
+'id': 'shape',
+'type': 'fill',
+'source': 'barris', // reference the data source
+'layout': {},
+'paint': {
+'fill-color': '#ffffff', // blue color fill
+'fill-opacity': 0.4
+}
+});
+// Add a black outline around the polygon.
+map.addLayer({
+'id': 'outline',
+'type': 'line',
+'source': 'barris',
+'layout': {},
+'paint': {
+'line-color': 'red',
+'line-width': 3
+}
+});
+});
+
+map.on('click', 'shape', function (e) {
+new mapboxgl.Popup()
+.setLngLat(e.lngLat)
+.setHTML(
+  '<div id="content">' +
+    '<h3>' + "District: " + e.features[0].properties.n_distri + '<br>' + "Barri: "+ e.features[0].properties.n_barri  + '</h3>' +
+  '<ul>' + 
+  '<li>' + "Areasize: " + e.features[0].properties.area + '</li>'+
+  '<li>' + "Homes: " + e.features[0].properties.homes + '</li>'+
+  '<li>' + "Description/Summary: " + e.features[0].properties.data_info + '</li>'+
+    '</ul>'+
+     '</div>')
+
+
+.addTo(map);
+});
+ 
+// Change the cursor to a pointer when the mouse is over the states layer.
+map.on('mouseenter', 'shape', function () {
+map.getCanvas().style.cursor = 'pointer';
+});
+ 
+// Change it back to a pointer when it leaves.
+map.on('mouseleave', 'shape', function () {
+map.getCanvas().style.cursor = '';
+});
+
+
+function hideLayer(){
+  map.setLayoutProperty('shape','visibility','none');
+  map.setLayoutProperty('outline','visibility','none');
+}
+
+function showLayer(){
+  map.setLayoutProperty('shape','visibility','visible');
+  map.setLayoutProperty('outline','visibility','visible');
+}
+
+
+// // // // // // // // 
+// MAKERPOINTS
+// // // // // // // // 
+
+// RESUlTAT FILTER
+
+    function ResultatAturat(){   
+      $( ".aturat" )
+      .toggleClass( "hideResultat" );
+      $( event.srcElement ).toggleClass("btnActive")
+}
+
+    function ResultatNd(){   
+      $( ".ND" )
+      .toggleClass( "hideResultat" );
+      $( event.srcElement ).toggleClass("btnActive")
+}
+
+      function ResultatSuspes(){   
+      $( ".suspes" )
+      .toggleClass( "hideResultat" );
+      $( event.srcElement ).toggleClass("btnActive")
+}
+
+
+
+// DEMANDA FILTER
+
+function DemandaBBVA(){   
+      $( ".BBVA" )
+      .toggleClass( "hideDemanda" );
+      $( event.srcElement ).toggleClass("btnActive")
+    }
+
+      function DemandaBANKIA(){   
+      $( ".BANKIA" )
+      .toggleClass( "hideDemanda" );
+      $( event.srcElement ).toggleClass("btnActive")
+}
+
+      function DemandaInmb(){   
+      $( ".Inmb" )
+      .toggleClass( "hideDemanda" );
+      $( event.srcElement ).toggleClass("btnActive")
+}
+
+
+// Grup FILTER
+
+function GrupVaris(){   
+      $( ".Varis" )
+      .toggleClass( "hideGrup" );
+      $( event.srcElement ).toggleClass("btnActive")
+    }
+
+      function GrupPAH(){   
+      $( ".PAHBarcelona" )
+      .toggleClass( "hideGrup" );
+      $( event.srcElement ).toggleClass("btnActive")
+}
+
+      function GrupSDR(){   
+      $( ".StopDesnonamentsRaval" )
+      .toggleClass( "hideGrup" );
+      $( event.srcElement ).toggleClass("btnActive")
+}
+
+function GrupRR(){   
+      $( ".RavalResistim" )
+      .toggleClass( "hideGrup" );
+      $( event.srcElement ).toggleClass("btnActive")
+}
+
+
+//https://raw.githubusercontent.com/Labor-K/cmmm-barcelona/main/database_a.geojson
+
+    
+d3.json(
+				'database_a.geojson', function (err, data) {
+          console.log(data)
+          if (err) throw err;
+         data.features.forEach(function (marker) {
+
+           console.log(marker.properties.Grup)
+           var namez = "marker " + marker.properties.Demanda.replace(/\s/g, '') + " "+ marker.properties.Resultat.replace(/\s/g, '') + " " +marker.properties.Grup.replace(/\s/g, '')
+// Create a DOM element for each marker.
+var el = document.createElement('div');
+el.className =  namez.toString();
+
+
+ el.setAttribute("ID", "Mark")
+// el.setAttribute("class", marker.properties.Demanda )
+// el.setAttribute("class", marker.properties.Resultat )
+
+
+// el.style.backgroundImage =
+// 'url(https://placekitten.com/g/' +
+// marker.properties.Grup.join('/') +
+// '/)';
+// el.style.width = marker.properties.iconSize[0] + 'px';
+// el.style.height = marker.properties.iconSize[1] + 'px';
+ el.style.backgroundSize = '100%';
+//  el.style.backgroundImage= 'url('+marker.properties.Image+')'
+
+ let showVideo = "show"
+ let showImage = "show"
+ if(marker.properties.Video === ''){showVideo = "hide" }
+ if(marker.properties.Image === ''){showImage = "hide" }
+
+// MAIN FILTER: DEMANDA! Transparency 
+// SECOND FILTER: RESULT! Transperency
+
+// Database: Add Column: LINK, 
+
+
+
+ var popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
+  '<div id="content">' + 
+  '<h3>' + "Nom: " + marker.properties.Grup + '</h3>' +
+  '<ul>' + 
+  '<li>' + "Direccio: " + marker.properties.Direcció + '</li>' +
+  '<li>' + "Resultat: " + marker.properties.Resultat + '</li>' +
+  '<img id="content_image" class="'+showImage+'" src="'+marker.properties.Icon+'">' +
+  '<li>' + "Data: " + marker.properties.Data + '</li>' +
+  '<li>' + "Demanda: " + marker.properties.Demanda + '</li>' +
+  '<li>' + "Grup: " + marker.properties.Grup + '</li>' +
+  '<li>' + "Descripcio: " + marker.properties.Grup + '</li>' +
+
+  '</ul>'+
+  '<img id="content_image" class="'+showImage+'" src="'+marker.properties.Image+'">' +
+  '<p id="bodytext">' +   marker.properties.Text + '</p>' +
+
+  '<iframe id="content_iframe" class="'+showVideo+'" src="'+marker.properties.Video+'">' + '</iframe>'+
+  '</div>'
+
+
+);
+
+
+// el.addEventListener('click', function () {
+// window.alert(marker);
+
+
+
+// });
+
+
+ 
+// Add markers to the map.
+new mapboxgl.Marker(el)
+.setLngLat(marker.geometry.coordinates)
+.setPopup(popup)
+.addTo(map);
+});
+          });
+
+
+
+</script>
+ 
+</body>
+</html>
+<script src="https://player.vimeo.com/api/player.js"></script>
