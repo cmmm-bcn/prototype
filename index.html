@@ -190,8 +190,7 @@ h2 h3 h4{
 	// https://account.mapbox.com
 	mapboxgl.accessToken = 'pk.eyJ1IjoiY21tbS1iY24iLCJhIjoiY2twbWc1aG5wMmV3aTJ2cmk2emcwN3NsMiJ9.mJ7upB63IpECABifdOgg-g';
 
-  var geojson = d3.json('https://raw.githubusercontent.com/Labor-K/mini-publics/master/map_c.geojson');
-  console.log(geojson)
+
 
 /* var geojson = {
 'type': 'FeatureCollection',
@@ -391,7 +390,7 @@ function GrupRR(){
 
     
 d3.json(
-				'database_a.geojson', function (err, data) {
+				'https://raw.githubusercontent.com/cmmm-bcn/prototype/main/database_a.geojson', function (err, data) {
           console.log(data)
           if (err) throw err;
          data.features.forEach(function (marker) {
