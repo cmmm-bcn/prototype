@@ -1,0 +1,394 @@
+{
+   "type": "FeatureCollection",
+   "features": [
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 2.17076,41.37547 ]
+    },
+    "properties": {
+    "Data":"5/22/18",
+    "Grup":"Varis",
+    "Y":4580765,
+    "X":430656,
+    "Resultat":"ND",
+    "Demanda":"Particular",
+    "Informació":"",
+    "Direcció":"C/ Nou de la Rambla",
+    "Text":"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+    "Video":"https://player.vimeo.com/video/520706586?title=0&byline=0&portrait=0",
+    "Image":"https://i.picsum.photos/id/55/200/300.jpg?hmac=VjTl-6Y6NNyUWof_G17-KlocVl0QuUoxpir1beSTl8A",
+    "Notes":"This is a special Note",
+        "Icon":"",
+
+    "Link":"", 
+    "FIELD16":"square"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 2.1685,41.3768 ]
+    },
+    "properties": {
+    "Data":"6/29/18",
+    "Grup":"PAH Barcelona",
+    "Y":4580921,
+    "X":430469,
+    "Resultat":"aturat",
+    "Demanda":"Inmb",
+    "Informació":"<img src=\"https://drive.google.com/uc?export=download&id=1YU47FlRgzl_3c_9Ftpp8ABmMtx29aJWO\"></img>",
+    "Direcció":"C/ Carretes",
+    "Text":"Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+    "Video":"https://player.vimeo.com/video/520706586?title=0&byline=0&portrait=0",
+    "Image":"",
+    "Notes":"",
+    "Icon":"aturat.png", 
+    "Link":"",    
+    "FIELD16":"round"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 2.16436,41.38157 ]
+    },
+    "properties": {
+    "Data":"10/17/18",
+    "Grup":"Stop Desnonaments Raval",
+    "Y":4581452,
+    "X":430130,
+    "Resultat":"ND",
+    "Demanda":"Particular",
+    "Informació":"",
+    "Direcció":"C/ de Ferlandina",
+    "Text":" Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+    "Video":"https://player.vimeo.com/video/520706586?title=0&byline=0&portrait=0",
+    "Image":"",
+    "Notes":"",
+        "Icon":"",
+ 
+    "Link":"",    
+    "FIELD16":"triangle"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 2.16488,41.38092 ]
+    },
+    "properties": {
+    "Data":"11/15/18",
+    "Grup":"PAH Barcelona",
+    "Y":4581379,
+    "X":430173,
+    "Resultat":"aturat",
+    "Demanda":"BANKIA",
+    "Informació":"",
+    "Direcció":"C/ de Sant Gil",
+    "Text":" Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+    "Video":"",
+    "Image":"",
+    "Notes":"",
+    "Icon":"aturat.png", 
+    "Link":"",    
+    "FIELD16":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 2.16488,41.38092 ]
+    },
+    "properties": {
+    "Data":"11/15/18",
+    "Grup":"Stop Desnonaments Raval",
+    "Y":4581380,
+    "X":430173,
+    "Resultat":"ND",
+    "Demanda":"Particular",
+    "Informació":"",
+    "Direcció":"C/ Sant Gil",
+    "Text":" Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+    "Video":"",
+    "Image":"",
+    "Notes":"",
+        "Icon":"",
+ 
+    "Link":"",    
+    "FIELD16":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 2.16488,41.38092 ]
+    },
+    "properties": {
+    "Data":"11/27/18",
+    "Grup":"Raval Resistim",
+    "Y":4581380,
+    "X":430173,
+    "Resultat":"ND",
+    "Demanda":"Particular",
+    "Informació":"",
+    "Direcció":"C/ de Sant Gil",
+    "Text":" Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+    "Video":"",
+    "Image":"",
+    "Notes":"",
+        "Icon":"",
+ 
+    "Link":"",    
+    "FIELD16":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 2.16487,41.37829 ]
+    },
+    "properties": {
+    "Data":"1/10/19",
+    "Grup":"PAH Barcelona",
+    "Y":4581089,
+    "X":430167,
+    "Resultat":"suspes",
+    "Demanda":"Budmac Investments",
+    "Informació":"",
+    "Direcció":"Carrer dels Salvador",
+    "Text":" Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+    "Video":"",
+    "Image":"",
+    "Notes":"",
+    "Icon":"suspes.png", 
+    "Link":"",    
+    "FIELD16":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 2.16401,41.37829 ]
+    },
+    "properties": {
+    "Data":"1/23/19",
+    "Grup":"PAH Barcelona",
+    "Y":4581376,
+    "X":430161,
+    "Resultat":"suspes",
+    "Demanda":"BBVA",
+    "Informació":"",
+    "Direcció":"C/ Sant Gil",
+    "Text":" Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+    "Video":"",
+    "Image":"",
+    "Notes":"",
+    "Icon":"suspes.png", 
+    "Link":"",    
+    "FIELD16":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 12.16401,41.3808 ]
+    },
+    "properties": {
+    "Data":"/24/19",
+    "Grup":"PAH Barcelona",
+    "Y":4581376,
+    "X":430161,
+    "Resultat":"aturat",
+    "Demanda":"Inmb",
+    "Informació":"",
+    "Direcció":"C/ Sant Gil",
+    "Text":" Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+    "Video":"",
+    "Image":"",
+    "Notes":"",
+    "Icon":"aturat.png", 
+    "Link":"",    
+    "FIELD16":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 2.16502,41.38249 ]
+    },
+    "properties": {
+    "Data":"1/29/19",
+    "Grup":"PAH Barcelona",
+    "Y":4581549,
+    "X":430187,
+    "Resultat":"suspes",
+    "Demanda":"BANKIA",
+    "Informació":"",
+    "Direcció":"C/ Paloma",
+    "Text":" Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+    "Video":"",
+    "Image":"https://via.placeholder.com/1920x1080",
+    "Notes":"",
+    "Icon":"suspes.png", 
+    "Link":"",    
+    "FIELD16":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 2.16488,41.38092 ]
+    },
+    "properties": {
+    "Data":"3/14/19",
+    "Grup":"Varis",
+    "Y":4581380,
+    "X":430173,
+    "Resultat":"ND",
+    "Demanda":"Particular",
+    "Informació":"",
+    "Direcció":"C/ Sant Gil",
+    "Text":" Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+    "Video":"",
+    "Image":"https://via.placeholder.com/1920x1080",
+    "Notes":"",
+        "Icon":"",
+ 
+    "Link":"",    
+    "FIELD16":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 2.17538,41.37851 ]
+    },
+    "properties": {
+    "Data":"3/14/19",
+    "Grup":"PAH Barcelona",
+    "Y":4580733,
+    "X":430834,
+    "Resultat":"aturat",
+    "Demanda":"Inmb",
+    "Informació":"",
+    "Direcció":"C/ Arc del Teatre",
+    "Text":" Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+    "Video":"",
+    "Image":"",
+    "Notes":"",
+    "Icon":"aturat.png", 
+    "Link":"",    
+    "FIELD16":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 2.16487,41.37829 ]
+    },
+    "properties": {
+    "Data":"6/5/19",
+    "Grup":"PAH Barcelona",
+    "Y":4581089,
+    "X":430167,
+    "Resultat":"suspes",
+    "Demanda":"Budmac Investments",
+    "Informació":"",
+    "Direcció":"C/ Salvador",
+    "Text":" 18",
+    "Video":"",
+    "Image":"https://via.placeholder.com/1920x1080",
+    "Notes":"",
+    "Icon":"suspes.png", 
+    "Link":"",    
+    "FIELD16":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 2.17538,41.37851 ]
+    },
+    "properties": {
+    "Data":"6/5/19",
+    "Grup":"PAH Barcelona",
+    "Y":4580729,
+    "X":430837,
+    "Resultat":"aturat",
+    "Demanda":"Inmb",
+    "Informació":"",
+    "Direcció":"C/ Arc del Teatre",
+    "Text":" Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+    "Video":"",
+    "Image":"",
+    "Notes":"",
+    "Icon":"aturat.png", 
+    "Link":"",    
+    "FIELD16":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 2.16727,41.37814 ]
+    },
+    "properties": {
+    "Data":"3/13/20",
+    "Grup":"PAH Barcelona",
+    "Y":4581071,
+    "X":430368,
+    "Resultat":"suspes",
+    "Demanda":"BBVA",
+    "Informació":"",
+    "Direcció":"C/ Aurora",
+    "Text":" Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+    "Video":"",
+    "Image":"",
+    "Notes":"",
+    "Icon":"suspes.png", 
+    "Link":"",    
+    "FIELD16":""
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ 2.18066,41.39472 ]
+    },
+    "properties": {
+    "Data":"2/24/21",
+    "Grup":"PAH Barcelona",
+    "Y":4582900,
+    "X":431505,
+    "Resultat":"ND",
+    "Demanda":"BANKIA",
+    "Informació":"",
+    "Direcció":"C/Nàpols",
+    "Text":" Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+    "Video":"",
+    "Image":"",
+    "Notes":"",
+    "Icon":"", 
+    "Link":"executat.png",    
+    "FIELD16":""
+    }
+  }
+]
+}
