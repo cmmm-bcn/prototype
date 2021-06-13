@@ -47,9 +47,9 @@ ul{
 .mapboxgl-popup{
     transform:none !important;
     position: fixed;
-    top: 180px;
+    top: 0px;
     bottom:0;
-    width: 350px;
+    width: 400px;
     z-index: 99999999999;
     border-radius: none;
 
@@ -79,6 +79,12 @@ height: auto;
 max-width: 300px;
 }
 
+#icon_image{
+height: auto;
+max-width: 100px;
+
+}
+
 .marker {
 display: block;
 border: none;
@@ -95,11 +101,44 @@ height: 25px;
   background-color: white;
   width: 340px;
   height: 220px;
+  right:0;
   padding-left: 2%;
+
+
+}
+
+#filter{
+  position: fixed;
+  display: inline-block;
+  background-color: white;
+  top: 150px;
+  width: 340px;
+  height: 340px;
+  padding-left: 2%;
+  right:0;
+
 
 }
 
 
+.columnleft {
+  float: left;
+  width: 55%;
+
+}
+
+.columnright {
+  float: left;
+
+  width: 45%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 h2 h3 h4{
   font-size: 18px;
@@ -132,16 +171,7 @@ h2 h3 h4{
 
 .hide{ display: none;}
 
-#filter{
-  position: fixed;
-  display: inline-block;
-  background-color: white;
-  margin-left: 340px;
-  width: 500px;
-  height: 220px;
-  padding-left: 2%;
 
-}
 </style>
  
 <div id="map"></div>
@@ -151,26 +181,26 @@ h2 h3 h4{
 </div>
 
 <div id="filter">
-  <h3>Filter:</h3>
-  <h4>Resultat:
+  <h3>Filter</h3>
+  <h4>Resultat</br>
   <button id="button" type="button" onclick="ResultatAturat()" >Aturat</button>
   <button id="button" type="button" onclick="ResultatNd()" >ND</button>
   <button id="button" type="button" onclick="ResultatSuspes()" >Suspes</button>
 </h4>
-  <h4>Demanda:
+  <h4>Demanda</br>
   <button id="button" type="button" onclick="DemandaBBVA()" >BBVA</button>
   <button id="button" type="button" onclick="DemandaBANKIA()" >Bankia</button>
   <button id="button" type="button" onclick="DemandaInmb()" >Inmb</button>
 </h4>
 
-<h4>Grup:
+<h4>Grup</br>
   <button id="button" type="button" onclick="GrupVaris()" >Varis</button>
   <button id="button" type="button" onclick="GrupPAH()" >PAH Barcelona</button>
   <button id="button" type="button" onclick="GrupSDR()" >Stop Desnonaments Raval</button>
   <button id="button" type="button" onclick="GrupRR()" >Raval Resistim</button>
 </h4>
 <h4>
-  Districts:
+  Districts</br>
   <button id="button" type="button" onclick="showLayer()" >Show Districts</button>
   <button id="button" type="button" onclick="hideLayer()" >Hide Districts</button>
 
@@ -418,8 +448,11 @@ el.className =  namez.toString();
 
  let showVideo = "show"
  let showImage = "show"
+ let showIcon = "show"
+
  if(marker.properties.Video === ''){showVideo = "hide" }
  if(marker.properties.Image === ''){showImage = "hide" }
+ if(marker.properties.Icon === ''){showIcon = "hide" }
 
 // MAIN FILTER: DEMANDA! Transparency 
 // SECOND FILTER: RESULT! Transperency
@@ -430,15 +463,25 @@ el.className =  namez.toString();
 
  var popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
   '<div id="content">' + 
-  '<h3>' + "Nom: " + marker.properties.Grup + '</h3>' +
+  '<h3>' + "Nom: " + '<b>' + marker.properties.Grup + '</b>' + '</h3>' +
+  '<div class="row">'+
+  '<div class= columnleft>'+
   '<ul>' + 
-  '<li>' + "Direccio: " + marker.properties.Direcció + '</li>' +
-  '<li>' + "Resultat: " + marker.properties.Resultat + '</li>' +
-  '<img id="content_image" class="'+showImage+'" src="'+marker.properties.Icon+'">' +
-  '<li>' + "Data: " + marker.properties.Data + '</li>' +
-  '<li>' + "Demanda: " + marker.properties.Demanda + '</li>' +
-  '<li>' + "Grup: " + marker.properties.Grup + '</li>' +
-  '<li>' + "Descripcio: " + marker.properties.Grup + '</li>' +
+  '<li>' + "Direccio: "+ '<b>'  + marker.properties.Direcció+ '</b>' + '</li>' +
+  '<li>' + "Data: " + '<b>' + marker.properties.Data + '</b>'+ '</li>' +
+  '<li>' + "Demanda: " + '<b>' + marker.properties.Demanda + '</b>'+ '</li>' +
+  '<li>' + "Grup: " + '<b>' + marker.properties.Grup + '</b>'+ '</li>' +
+  '</div>'+
+
+  '<div class= columnright>'+
+
+  '<li>' + "Resultat: " + '<b>'  + marker.properties.Resultat+ '</b>' + '</li>' +
+  '<img id="icon_image" class="'+showIcon+'" src="'+marker.properties.Icon+'">' +
+  '</div>'+
+
+
+  '</div>'+
+  '</br>'+
 
   '</ul>'+
   '<img id="content_image" class="'+showImage+'" src="'+marker.properties.Image+'">' +
